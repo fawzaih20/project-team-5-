@@ -1,0 +1,179 @@
+---
+title: "Analysis of Teachers' Recruitment in Saudi Arabia Between 1437 and 1440"
+subtitle: "Data from Saudi Open Data Office"
+author: "Musab Isah"
+date: "6 March 2021"
+output: html_document
+---
+
+Group Number:
+Group Members Name (ID):
+
+1. Abc Xyz (00000000)
+2.
+3.
+4.
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below.
+
+## Cloning the Project File
+Clone the project file from htt
+
+
+## Packages
+Ensure you have the `tidyverse` and `readxl` packages installed.
+
+```{r install_packages}
+install.packages("tidyverse")
+install.packages("readxl")
+```
+
+Here we load the libraries that we will need to manipulate the dataset.
+
+```{r libraries, echo=FALSE, message = FALSE}
+library(tidyverse)
+library(readxl)
+```
+
+
+We then need to load the data from the MS Excel (.xlsx) file, named teachers_data.xlsx, to the R environment for manipulation.
+
+```{r load_data, message = FALSE}
+tdata <- read_excel("teachers_data.xlsx")
+```
+
+# Wherever you see the text '#Add some code', it means you should delete the comment and add your code for the task.
+
+## Task 1 
+(8 points)
+
+The first thing we need to do is to tidy the data by changing the column names to a name that R could easily use. Change the heading with English names. There should be no space in the column name. For example, change "السنة" to year. 
+
+```{r tidy_data}
+#Add some code
+```
+
+Team Member 1 should *Knit, commit, and push changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+
+
+## Task2
+
+(a) What are the different administrative regions (المنطقة الإدارية) found in the data? (4 points)
+
+```{r admin_regions}
+#Add some code
+```
+
+Answer:
+
+(b) Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? (4 points)
+
+```{r not_recruited_admin_regions}
+#Add some code
+```
+
+Answer:
+
+## Task3
+
+(a) Saudi Arabian education is divided into different stages/levels (المرحلة), list the different levels showed in the data in descending order of frequency. (4 points)
+
+```{r study_levels}
+#Add some code
+```
+
+Answer:
+
+(b) Which level recruit the most teachers? (4 points)
+
+
+```{r most_teachers}
+#Add some code
+```
+
+Answer:
+
+(c) Plot the graph of region versus number of **Saudi** teachers recruited over the period. (4 points)
+
+```{r plot_admin_regions_saudi}
+#Add some code
+```
+
+Answer:
+
+(d) Plot the graph of region versus number of **Non-Saudi** teachers recruited over the period. (4 points)
+
+```{r plot_admin_regions_non-saudi}
+#Add some code
+```
+
+Answer:
+
+(e) Plot the graph of region versus number of **all teachers** recruited over the period. (4 points)
+
+```{r plot_admin_regions_all}
+#Add some code
+```
+
+Answer:
+
+## Task 4
+
+(a) How many boys and how many girls schools are listed in the data? (4 points)
+
+```{r no_boys_girls}
+#Add some code
+```
+
+Answer:
+
+(b) Between boys and girls schools, which recruit more teachers? (4 points)
+
+```{r recruitment_boys_girls}
+#Add some code
+```
+
+Answer:
+
+(c) What is the correlation between recruitment at boys schools and recruitment of girls schools? (4 points)
+
+```{r plot_correlation_boys_girls}
+#Add some code
+```
+
+Answer:
+
+## Task 5
+
+(a) How many teachers are recruited each year, 1437, 1438, 1439, and 1440? (4 points)
+
+```{r teachers_per_year}
+#Add some code
+```
+
+Answer:
+
+(b) Which region recruited the most teachers in each of the years under review? (4 points)
+
+```{r teachers_per_region}
+#Add some code
+```
+
+Answer:
+
+(c) Plot the graph of number of teachers recruited vs the number of schools in an administrative region? What type or relationship exist between the two variables? (4 points)
+
+```{r plot_teachers_administrative_regions}
+#Add some code
+```
+
+Answer:
+
+ 
