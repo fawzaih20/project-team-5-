@@ -1,18 +1,17 @@
 ---
-title: "Analysis of Teachers' Recruitment in Saudi Arabia Between 1437 and 1440"
-subtitle: "Data from Saudi Open Data Office"
-author: "Musab Isah"
+title: "DSC 200 - 202 Course Project"
 date: "6 March 2021"
-output: html_document
+output: github_document
 ---
 
 Group Number:
-Group Members Name (ID):
 
-1. Abc Xyz (00000000)
-2.
-3.
-4.
+Group Members' Names (IDs):
+
+1. Abc Xyz (00000000)   -- Team Leader
+2.                      -- Member 1
+3.                      -- Member 2
+4.                      -- Member 3
 
 
 
@@ -21,21 +20,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below.
+## Loading Libraries    
 
-## Cloning the Project File
-Clone the project file from htt
-
-
-## Packages
-Ensure you have the `tidyverse` and `readxl` packages installed.
-
-```{r install_packages}
-install.packages("tidyverse")
-install.packages("readxl")
-```
-
-Here we load the libraries that we will need to manipulate the dataset.
+*Note: The team leader and members should run the code below.*
 
 ```{r libraries, echo=FALSE, message = FALSE}
 library(tidyverse)
@@ -43,45 +30,50 @@ library(readxl)
 ```
 
 
-We then need to load the data from the MS Excel (.xlsx) file, named teachers_data.xlsx, to the R environment for manipulation.
+*Note: Only Team Leader should run the code below*
 
 ```{r load_data, message = FALSE}
 tdata <- read_excel("teachers_data.xlsx")
 ```
 
-# Wherever you see the text '#Add some code', it means you should delete the comment and add your code for the task.
 
-## Task 1 
-(8 points)
-
-The first thing we need to do is to tidy the data by changing the column names to a name that R could easily use. Change the heading with English names. There should be no space in the column name. For example, change "السنة" to year. 
+## Task 1 - Tidy Data
+\textcolor{red}{(8 points)}
 
 ```{r tidy_data}
 #Add some code
 ```
 
-Team Member 1 should *Knit, commit, and push changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
+Team Leader should *Knit, commit, and push changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
 
-## Task2
+## Task2 - Analysis
+\textcolor{red}{(8 points)}
 
-(a) What are the different administrative regions (المنطقة الإدارية) found in the data? (4 points)
+Next Team Member should *Pull the changes made by Team Leader before proceeding.*
+
+(a) What are the different administrative_regions (المنطقة الإدارية) found in the data?
 
 ```{r admin_regions}
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
-(b) Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? (4 points)
+(b) Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? List the Saudi regions shown in the data.
 
 ```{r not_recruited_admin_regions}
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
-## Task3
+The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
+
+## Task3 - Further Analysis and Plots
+\textcolor{red}{(20 points)}
+
+The Next Team Member should *Pull the changes made by Member 1 before proceeding.*
 
 (a) Saudi Arabian education is divided into different stages/levels (المرحلة), list the different levels showed in the data in descending order of frequency. (4 points)
 
@@ -89,7 +81,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (b) Which level recruit the most teachers? (4 points)
 
@@ -98,7 +90,11 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
+
+The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
+
+The Next Team member should *Pull the changes made by Team Leader before proceeding.*
 
 (c) Plot the graph of region versus number of **Saudi** teachers recruited over the period. (4 points)
 
@@ -106,7 +102,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (d) Plot the graph of region versus number of **Non-Saudi** teachers recruited over the period. (4 points)
 
@@ -114,7 +110,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (e) Plot the graph of region versus number of **all teachers** recruited over the period. (4 points)
 
@@ -122,9 +118,14 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
-## Task 4
+The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
+
+## Task 4 - Further Analysis and Correlations
+\textcolor{red}{(12 points)}
+
+The Next Team member should *Pull the changes made previously before proceeding.*
 
 (a) How many boys and how many girls schools are listed in the data? (4 points)
 
@@ -132,7 +133,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (b) Between boys and girls schools, which recruit more teachers? (4 points)
 
@@ -140,7 +141,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (c) What is the correlation between recruitment at boys schools and recruitment of girls schools? (4 points)
 
@@ -148,17 +149,22 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
-## Task 5
+The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
-(a) How many teachers are recruited each year, 1437, 1438, 1439, and 1440? (4 points)
+## Task 5 - Final Analysis and Plots
+\textcolor{red}{(12 points)}
+
+The Next Team member should *Pull the changes made previously before proceeding.*
+
+(a) How many teachers are recruited each year, 1437, 1438, 1439, and 1440? 
 
 ```{r teachers_per_year}
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (b) Which region recruited the most teachers in each of the years under review? (4 points)
 
@@ -166,7 +172,7 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
 (c) Plot the graph of number of teachers recruited vs the number of schools in an administrative region? What type or relationship exist between the two variables? (4 points)
 
@@ -174,6 +180,8 @@ Answer:
 #Add some code
 ```
 
-Answer:
+Comments about your answer:
 
- 
+The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
+
+## If you are here, then congratulations!! You have completed the DSC 200 course project.
