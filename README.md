@@ -1,0 +1,2 @@
+# course_project
+The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below. This project is for BS Data Science Students at the University of Hafr Al-Batin in Saudi Arabia.
