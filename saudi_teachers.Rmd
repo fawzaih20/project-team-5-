@@ -1,9 +1,10 @@
 ---
-title: "DSC 200 - 202 Course Project"
+title: "Analysis of Teachers' Recruitment in Saudi Arabia Between 1437 and 1440"
+subtitle: "Data from Saudi Open Data Office"
+author: "Musab Isah"
 date: "6 March 2021"
 output: pdf_document
 ---
-
 
 Group Number:
 
@@ -21,9 +22,36 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-## Loading Libraries    
+The purpose of this project explore the data on teachers recruitment at different levels of schooling (with the exception of higher education, such as universities) between 1437 and 1440 Hijri in Saudi Arabia. The data is sourced from Saudi Open Data Office and you are expected to use the provided data to answer the questions below.
 
-*Note: The team leader and members should run the code below.*
+Remember that this is a collaborative work and each member must participate in completing the project.
+
+## Cloning the Project File
+
+# Actions by Team Leader
+1. The team leader should clone the project files from https://github.com/musabu/DSC200_202_course_project.git to their github account.
+
+2. Make the repo private during the creation process. 
+
+3. Add the members of your team and your instructor (my username is musabu) as collaborators on the project.
+
+# Actions by other Team Members
+
+1. Clone the project files from the github page of your team leader https://github.com/team_leader_username/DSC200_202_course_project.git
+
+2. Make the repo private during the creation process.
+
+# Action by Team Leader and members
+
+Import the files to your rstudio cloud. The R Markdown for solving the tasks is called saudi_teachers.Rmd.
+
+
+## Packages
+Once you import the project into rstudio.cloud, open the file saudi_teachers.Rmd. Ensure you have the `tidyverse` and `readxl` packages installed by running the 2 lines of code below. Both the team leader and members should run the code below in the console of rstudio `install.packages("tidyverse")` and `install.packages("readxl")`
+
+
+## Loading Libraries    
+Here we load the libraries that we will need to read the MS Excel file and to manipulate the dataset. Both the team leader and members should run the code below.
 
 ```{r libraries, echo=FALSE, message = FALSE}
 library(tidyverse)
@@ -31,15 +59,22 @@ library(readxl)
 ```
 
 
+We then need to load the data from the MS Excel (.xlsx) file, named teachers_data.xlsx, to the R environment for processing.
+
 *Note: Only Team Leader should run the code below*
 
 ```{r load_data, message = FALSE}
 tdata <- read_excel("teachers_data.xlsx")
 ```
 
+# Wherever you see the text '#Add some code', it means you should delete the comment and add your code for the task.
 
-## Task 1 - Tidy Data
+# 2 Marks will be deducted for every deadline missed.
+
+## Task 1
 \textcolor{red}{(8 points)}
+
+The first thing we need to do is to tidy the data by changing the Arabic column names to English names that you could easily use in your code. There should be no space in the column name. For example, change the arabic text Al-Sanah to $year$. I have provided you with some English names you could use in the tasks below. You could use Google Translate to find the right English words for the rest of the variables. Ensure that there is no space for variables with two words. For instance administrative regions should be written as administrative_regions.
 
 ```{r tidy_data}
 #Add some code
@@ -47,13 +82,14 @@ tdata <- read_excel("teachers_data.xlsx")
 
 Team Leader should *Knit, commit, and push changes to GitHub with an appropriate commit message. Make sure to commit and push all changed files so that your Git pane is cleared up afterwards.*
 
+\textcolor{red}{DEADLINE: END OF WEEK 9}
 
-## Task2 - Analysis
+## Task2
 \textcolor{red}{(8 points)}
 
 Next Team Member should *Pull the changes made by Team Leader before proceeding.*
 
-(a) What are the different administrative_regions (المنطقة الإدارية) found in the data?
+(a) What are the different administrative_regions (Al-Mandaqah Al-idariyyah) found in the data?
 
 ```{r admin_regions}
 #Add some code
@@ -71,12 +107,14 @@ Comments about your answer:
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
-## Task3 - Further Analysis and Plots
+\textcolor{red}{DEADLINE: END OF WEEK 10}
+
+## Task3
 \textcolor{red}{(20 points)}
 
 The Next Team Member should *Pull the changes made by Member 1 before proceeding.*
 
-(a) Saudi Arabian education is divided into different stages/levels (المرحلة), list the different levels showed in the data in descending order of frequency. (4 points)
+(a) Saudi Arabian education is divided into different stages/levels (Al-Marhala), list the different levels showed in the data in descDEADLINE: ENDing order of frequency. (4 points)
 
 ```{r study_levels}
 #Add some code
@@ -123,7 +161,9 @@ Comments about your answer:
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
-## Task 4 - Further Analysis and Correlations
+\textcolor{red}{DEADLINE: END OF WEEK 12}
+
+## Task 4
 \textcolor{red}{(12 points)}
 
 The Next Team member should *Pull the changes made previously before proceeding.*
@@ -154,7 +194,9 @@ Comments about your answer:
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
-## Task 5 - Final Analysis and Plots
+\textcolor{red}{DEADLINE: END OF WEEK 13}
+
+## Task 5
 \textcolor{red}{(12 points)}
 
 The Next Team member should *Pull the changes made previously before proceeding.*
@@ -184,5 +226,7 @@ Comments about your answer:
 Comments about your answer:
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
+
+\textcolor{red}{DEADLINE: END OF WEEK 14}
 
 ## If you are here, then congratulations!! You have completed the DSC 200 course project.
