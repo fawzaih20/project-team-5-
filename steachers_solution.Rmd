@@ -13,8 +13,6 @@ Group Members' Names (IDs):
 1. Abc Xyz (00000000)   -- Team Leader
 2.                      -- Member 1
 3.                      -- Member 2
-4.                      -- Member 3
-
 
 
 ```{r setup, include=FALSE}
