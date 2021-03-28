@@ -33,7 +33,18 @@ tdata <- read_excel("teachers_data.xlsx")
 ## Task 1
 
 ``` r
-#Add some code
+tdata = rename(tdata, administrative_regions = "المنطقة الإدارية")
+tdata = rename(tdata, school_Level = "المرحلة")
+tdata = rename(tdata, authority = "السلطة")
+tdata = rename(tdata, Office_of_Education = "مكتب التربية")
+tdata = rename(tdata, sex = "الجنس")
+tdata = rename(tdata, School_type = "نوع المدرسة")
+tdata = rename(tdata, Type_of_education = "نوع التعليم")
+tdata = rename(tdata, school_system = "نظام الدراسة")
+tdata = rename(tdata, Saudi_teacher = "معلم سعودي")
+tdata = rename(tdata, Non_Saudi_teacher = "معلم غير سعودي")
+tdata = rename(tdata, Teachers = "معلمين جملة")
+tdata = rename(tdata, the_year = "السنة")
 ```
 
 Team Leader should *Knit, commit, and push changes to GitHub with an
