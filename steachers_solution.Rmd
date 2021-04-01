@@ -12,7 +12,8 @@ Group Members' Names (IDs):
 
 1. Fawzaih Nazal(2201000429) -- Team Leader
 2.Manar Mansour(2201002883)    -- Member 1
-3. Fadiyah suliman(2201001182)  ,wallaa Ali(2201002583)    -- Member 2
+3.Hajar Eid(2201002337)    -- Member 2
+4.Fadiyah suliman(2201001182)  ,wallaa Ali(2201002583) -- Member 3
 
 
 ```{r setup, include=FALSE}
@@ -71,18 +72,26 @@ Next Team Member should *Pull the changes made by Team Leader before proceeding.
 (a) What are the different administrative_regions (Al-Mandaqah Al-idariyyah) found in the data?
 
 ```{r admin_regions}
-#Add some code
+tdata %>% count(administrative_regions) %>% arrange(desc(n))
 ```
 
-Comments about your answer:
+Comments about your answer:the biggest regions ->{riyadh: 31617 ,
+makkah : 26944 }
+
+and the smallest-> {alhudood alshmalya : 2072 , najran : 2933}.
 
 (b) Based on your knowledge of the administrative regions in Saudi Arabia, is there any region that has not recruited any teacher during the period under review (1437 - 1440 Hijri)? List the Saudi regions shown in the data.
 
 ```{r not_recruited_admin_regions}
-#Add some code
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Teachers==0)%>% count(administrative_regions)
+
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Saudi_teacher==0)%>% count(administrative_regions)%>%arrange(desc(n))
+
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Non_Saudi_teacher==0)%>% count(administrative_regions)%>%arrange(desc(n))
+
 ```
 
-Comments about your answer:
+Comments about your answer:The year (1437 to 1440), one non-Saudi  and Saudis teacher was appointed by the administrative regions and most regions, at least one teacher was appointed in Riyadh.
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 

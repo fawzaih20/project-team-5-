@@ -8,8 +8,8 @@ Group Number:5
 Group Members’ Names (IDs):
 
 1.  Fawzaih Nazal(2201000429) – Team Leader 2.Manar Mansour(2201002883)
-    – Member 1
-2.  Fadiyah suliman(2201001182) ,wallaa Ali(2201002583) – Member 2
+    – Member 1 3.Hajar Eid(2201002337) – Member 2 4.Fadiyah
+    suliman(2201001182) ,wallaa Ali(2201002583) – Member 3
 
 ## Loading Libraries
 
@@ -60,10 +60,30 @@ proceeding.*
     Al-idariyyah) found in the data?
 
 ``` r
-#Add some code
+tdata %>% count(administrative_regions) %>% arrange(desc(n))
 ```
 
-Comments about your answer:
+    ## # A tibble: 13 x 2
+    ##    administrative_regions     n
+    ##    <chr>                  <int>
+    ##  1 الرياض                 31617
+    ##  2 مكة المكرمة            26944
+    ##  3 عسير                   15462
+    ##  4 الشرقية                15034
+    ##  5 المدينة المنورة        10012
+    ##  6 القصيم                  9449
+    ##  7 جازان                   9229
+    ##  8 حائل                    5302
+    ##  9 تبوك                    4722
+    ## 10 الباحة                  4220
+    ## 11 الجوف                   3442
+    ## 12 نجران                   2933
+    ## 13 الحدود الشمالية         2072
+
+Comments about your answer:the biggest regions -&gt;{riyadh: 31617 ,
+makkah : 26944 }
+
+and the smallest-&gt; {alhudood alshmalya : 2072 , najran : 2933}.
 
 2.  Based on your knowledge of the administrative regions in Saudi
     Arabia, is there any region that has not recruited any teacher
@@ -71,10 +91,57 @@ Comments about your answer:
     regions shown in the data.
 
 ``` r
-#Add some code
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Teachers==0)%>% count(administrative_regions)
 ```
 
-Comments about your answer:
+    ## # A tibble: 0 x 2
+    ## # ... with 2 variables: administrative_regions <chr>, n <int>
+
+``` r
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Saudi_teacher==0)%>% count(administrative_regions)%>%arrange(desc(n))
+```
+
+    ## # A tibble: 13 x 2
+    ##    administrative_regions     n
+    ##    <chr>                  <int>
+    ##  1 الرياض                   652
+    ##  2 مكة المكرمة              509
+    ##  3 الشرقية                  289
+    ##  4 المدينة المنورة          100
+    ##  5 عسير                      51
+    ##  6 الجوف                     32
+    ##  7 حائل                      31
+    ##  8 تبوك                      29
+    ##  9 القصيم                    24
+    ## 10 نجران                     22
+    ## 11 جازان                     17
+    ## 12 الحدود الشمالية           15
+    ## 13 الباحة                     1
+
+``` r
+tdata %>% filter(the_year>=1437 ,the_year<=1440, Non_Saudi_teacher==0)%>% count(administrative_regions)%>%arrange(desc(n))
+```
+
+    ## # A tibble: 13 x 2
+    ##    administrative_regions     n
+    ##    <chr>                  <int>
+    ##  1 الرياض                 25271
+    ##  2 مكة المكرمة            22492
+    ##  3 عسير                   14773
+    ##  4 الشرقية                12160
+    ##  5 المدينة المنورة         9220
+    ##  6 القصيم                  9054
+    ##  7 جازان                   8766
+    ##  8 حائل                    5014
+    ##  9 تبوك                    4211
+    ## 10 الباحة                  4165
+    ## 11 الجوف                   2852
+    ## 12 نجران                   2661
+    ## 13 الحدود الشمالية         1826
+
+Comments about your answer:The year (1437 to 1440), one non-Saudi and
+Saudis teacher was appointed by the administrative regions and most
+regions, at least one teacher was appointed in Riyadh.
 
 The Team Member should *Knit, commit, and push changes to GitHub with an
 appropriate commit message.*
