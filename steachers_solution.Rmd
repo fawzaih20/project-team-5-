@@ -105,19 +105,21 @@ The Next Team Member should *Pull the changes made by Member 1 before proceeding
 (a) Saudi Arabian education is divided into different stages/levels (Al-Marhala), list the different levels showed in the data in descDEADLINE: ENDing order of frequency. (4 points)
 
 ```{r study_levels}
-#Add some code
+count (tdata, "school_Level")
+tdata%>%arrange (desc(school_Level))
 ```
 
-Comments about your answer:
+Comments about your answer:that we have 140438 (int)(n) of 
+school_level.
 
 (b) Which level recruit the most teachers? (4 points)
 
 
 ```{r most_teachers}
-#Add some code
+tdata%>%count (school_Level)%>%arrange (desc(n))
 ```
 
-Comments about your answer:
+Comments about your answer:The largest level in recrufitment is the primary schools and the lowest level is the continue learning, so we we should educate and qualify specialized teachers at the primary stage because it is the most important stage in terms of employment requirements and also the most important In students' lives
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
@@ -126,26 +128,26 @@ The Next Team member should *Pull the changes made by Team Leader before proceed
 (c) Plot the graph of region versus number of **Saudi** teachers recruited over the period. (4 points)
 
 ```{r plot_admin_regions_saudi}
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Saudi_teacher)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+Comments about your answer: The most number of  Saudi teachers has been employed  in (riyadh) and The fewest number of Saudi teachers have been employed in northern borders
 
 (d) Plot the graph of region versus number of **Non-Saudi** teachers recruited over the period. (4 points)
 
 ```{r plot_admin_regions_non-saudi}
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Non_Saudi_teacher)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+Comments about your answer: The most number of non Saudi teachers has been employed in ( riyadا ) and The fewest number of saudi teachers have been employed in Albahaa
 
 (e) Plot the graph of region versus number of **all teachers** recruited over the period. (4 points)
 
 ```{r plot_admin_regions_all}
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Teachers)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+Comments about your answer: The most number of non or Saudi teachers has been employed in (riyad) and The fewest number of saudi teachers have been employed in northern borders
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
