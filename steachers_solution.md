@@ -156,18 +156,59 @@ proceeding.*
     descDEADLINE: ENDing order of frequency. (4 points)
 
 ``` r
-#Add some code
+count (tdata, "school_Level")
 ```
 
-Comments about your answer:
+    ## # A tibble: 1 x 2
+    ##   `"school_Level"`      n
+    ##   <chr>             <int>
+    ## 1 school_Level     140438
+
+``` r
+tdata%>%arrange (desc(school_Level))
+```
+
+    ## # A tibble: 140,438 x 13
+    ##       id administrative_reg~ school_Level authority Office_of_Education    sex  
+    ##    <dbl> <chr>               <chr>        <chr>     <chr>                  <chr>
+    ##  1    18 مكة المكرمة         رياض أطفال   حكومي     مكتب التربية والتعليم~ بنات 
+    ##  2    23 عسير                رياض أطفال   حكومي     ابها                   بنات 
+    ##  3    63 جازان               رياض أطفال   حكومي     مكتب التربية والتعليم~ بنات 
+    ##  4    66 عسير                رياض أطفال   حكومي     بارق                   بنات 
+    ##  5    79 نجران               رياض أطفال   حكومي     نجران                  بنات 
+    ##  6    86 الجوف               رياض أطفال   حكومي     طبرجل                  بنات 
+    ##  7    91 الشرقية             رياض أطفال   حكومي     إدارة التربية والتعلي~ بنات 
+    ##  8    95 مكة المكرمة         رياض أطفال   حكومي     مكتب اضم               بنات 
+    ##  9    96 جازان               رياض أطفال   حكومي     مكتب التربية والتعليم~ بنات 
+    ## 10    97 حائل                رياض أطفال   أهلي      موقق                   بنات 
+    ## # ... with 140,428 more rows, and 7 more variables: School_type <chr>,
+    ## #   Type_of_education <chr>, school_system <chr>, Saudi_teacher <dbl>,
+    ## #   Non_Saudi_teacher <dbl>, Teachers <dbl>, the_year <dbl>
+
+Comments about your answer:that we have 140438 (int)(n) of
+school\_level.
 
 2.  Which level recruit the most teachers? (4 points)
 
 ``` r
-#Add some code
+tdata%>%count (school_Level)%>%arrange (desc(n))
 ```
 
-Comments about your answer:
+    ## # A tibble: 6 x 2
+    ##   school_Level           n
+    ##   <chr>              <int>
+    ## 1 المرحلة الابتدائية 58471
+    ## 2 المرحلة المتوسطة   34290
+    ## 3 المرحلة الثانوية   23660
+    ## 4 رياض أطفال         14302
+    ## 5 التربية الخاصة      9105
+    ## 6 التعليم المستمر      610
+
+Comments about your answer:The largest level in recrufitment is the
+primary schools and the lowest level is the continue learning, so we we
+should educate and qualify specialized teachers at the primary stage
+because it is the most important stage in terms of employment
+requirements and also the most important In students’ lives
 
 The Team Member should *Knit, commit, and push changes to GitHub with an
 appropriate commit message.*
@@ -179,28 +220,40 @@ proceeding.*
     recruited over the period. (4 points)
 
 ``` r
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Saudi_teacher)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+![](steachers_solution_files/figure-gfm/plot_admin_regions_saudi-1.png)<!-- -->
+
+Comments about your answer: The most number of Saudi teachers has been
+employed in (riyadh) and The fewest number of Saudi teachers have been
+employed in northern borders
 
 4.  Plot the graph of region versus number of **Non-Saudi** teachers
     recruited over the period. (4 points)
 
 ``` r
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Non_Saudi_teacher)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+![](steachers_solution_files/figure-gfm/plot_admin_regions_non-saudi-1.png)<!-- -->
+
+Comments about your answer: The most number of non Saudi teachers has
+been employed in ( riyadا ) and The fewest number of saudi teachers have
+been employed in Albahaa
 
 5.  Plot the graph of region versus number of **all teachers** recruited
     over the period. (4 points)
 
 ``` r
-#Add some code
+ggplot (data=tdata, aes (x=administrative_regions, y= Teachers)) + geom_point (stat="identity")
 ```
 
-Comments about your answer:
+![](steachers_solution_files/figure-gfm/plot_admin_regions_all-1.png)<!-- -->
+
+Comments about your answer: The most number of non or Saudi teachers has
+been employed in (riyad) and The fewest number of saudi teachers have
+been employed in northern borders
 
 The Team Member should *Knit, commit, and push changes to GitHub with an
 appropriate commit message.*
@@ -214,19 +267,36 @@ proceeding.*
     points)
 
 ``` r
-#Add some code
+tdata%>%count(sex)
 ```
 
-Comments about your answer:
+    ## # A tibble: 3 x 2
+    ##   sex              n
+    ##   <chr>        <int>
+    ## 1 بنات         77462
+    ## 2 بنين         62766
+    ## 3 مدارس الخارج   210
+
+Comments about your answer: the number of girls schools &gt;&gt; (77462)
+is more then the number of boys schools &gt;&gt; (62766)
 
 2.  Between boys and girls schools, which recruit more teachers? (4
     points)
 
 ``` r
-#Add some code
+tdata%>%group_by(sex)%>%summarise_at(vars(Teachers),list(sum=sum))
 ```
 
-Comments about your answer:
+    ## # A tibble: 3 x 2
+    ##   sex              sum
+    ##   <chr>          <dbl>
+    ## 1 بنات         1166895
+    ## 2 بنين          954028
+    ## 3 مدارس الخارج    2239
+
+Comments about your answer: boys\_schools\_teachers = (954028)
+girls\_schools\_teachers = (1166895) more teachers are employed in girls
+’schools than boys’ schools
 
 3.  What is the correlation between recruitment at boys schools and
     recruitment of girls schools? (4 points)
@@ -268,10 +338,16 @@ Comments about your answer:
     between the two variables? (4 points)
 
 ``` r
-#Add some code
+ggplot(data=tdata, aes(x=sex, y= Teachers , color = sex)) +                              geom_bar(stat="identity")
 ```
 
-Comments about your answer:
+![](steachers_solution_files/figure-gfm/plot_teachers_administrative_regions-1.png)<!-- -->
+
+Comments about your answer: the number of female teachers working in
+girls ’schools exceeds the number of teachers working in boys’ schools.
+therefore, emphasis must be placed on training and educating female
+teachers at higher rates to prepare them to work in girls ’schools, and
+employing more teachers working in boys’ schools
 
 The Team Member should *Knit, commit, and push changes to GitHub with an
 appropriate commit message.*

@@ -161,18 +161,23 @@ The Next Team member should *Pull the changes made previously before proceeding.
 (a) How many boys and how many girls schools are listed in the data? (4 points)
 
 ```{r no_boys_girls}
-#Add some code
+tdata%>%count(sex)
 ```
 
 Comments about your answer:
+the number of girls schools >> (77462) 
+is more then the number of boys schools >> (62766)
 
 (b) Between boys and girls schools, which recruit more teachers? (4 points)
 
 ```{r recruitment_boys_girls}
-#Add some code
+tdata%>%group_by(sex)%>%summarise_at(vars(Teachers),list(sum=sum))
 ```
 
 Comments about your answer:
+boys_schools_teachers = (954028)
+girls_schools_teachers = (1166895)
+more teachers are employed in girls ’schools than boys’ schools
 
 (c) What is the correlation between recruitment at boys schools and recruitment of girls schools? (4 points)
 
@@ -210,10 +215,12 @@ Comments about your answer:
 (c) Plot the graph of number of teachers recruited vs the number of schools in an administrative region? What type or relationship exist between the two variables? (4 points)
 
 ```{r plot_teachers_administrative_regions}
-#Add some code
+ggplot(data=tdata, aes(x=sex, y= Teachers , color = sex)) +                              geom_bar(stat="identity")
 ```
 
 Comments about your answer:
+the number of female teachers working in girls ’schools exceeds the number of teachers working in boys’ schools. 
+therefore, emphasis must be placed on training and educating female teachers at higher rates to prepare them to work in girls ’schools, and employing more teachers working in boys’ schools
 
 The Team Member should *Knit, commit, and push changes to GitHub with an appropriate commit message.*
 
