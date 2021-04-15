@@ -17,6 +17,26 @@ Ensure you have the `tidyverse` and `readxl` packages installed by
 running the 2 lines of code below. Both the team leader and members
 should run the code below in the console of rstudio.
 
+    ## Warning: package 'tidyverse' was built under R version 4.0.4
+
+    ## Warning: package 'ggplot2' was built under R version 4.0.4
+
+    ## Warning: package 'tibble' was built under R version 4.0.4
+
+    ## Warning: package 'tidyr' was built under R version 4.0.4
+
+    ## Warning: package 'readr' was built under R version 4.0.4
+
+    ## Warning: package 'purrr' was built under R version 4.0.4
+
+    ## Warning: package 'dplyr' was built under R version 4.0.4
+
+    ## Warning: package 'stringr' was built under R version 4.0.4
+
+    ## Warning: package 'forcats' was built under R version 4.0.4
+
+    ## Warning: package 'readxl' was built under R version 4.0.4
+
 We then need to load the data from the MS Excel (.xlsx) file, named
 teachers\_data.xlsx, to the R environment for processing.
 
@@ -319,19 +339,113 @@ proceeding.*
     1440?
 
 ``` r
-#Add some code
+tdata%>%group_by(the_year)%>%summarise_at(vars(Teachers),list(sum=sum))
 ```
 
-Comments about your answer:
+    ## # A tibble: 4 x 2
+    ##   the_year    sum
+    ##      <dbl>  <dbl>
+    ## 1     1437 540883
+    ## 2     1438 537965
+    ## 3     1439 525588
+    ## 4     1440 518726
+
+Comments about your answer: the total teachers (1437) : 540883 the total
+teachers (1438) : 537965 the total teachers (1439) : 525588 the total
+teachers (1440) : 518726
 
 2.  Which region recruited the most teachers in each of the years under
     review? (4 points)
 
 ``` r
-#Add some code
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1437") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
 ```
 
-Comments about your answer:
+    ## # A tibble: 13 x 2
+    ##    administrative_regions    sum
+    ##    <chr>                   <dbl>
+    ##  1 الرياض                 130124
+    ##  2 مكة المكرمة            114525
+    ##  3 الشرقية                 70391
+    ##  4 عسير                    49676
+    ##  5 المدينة المنورة         38115
+    ##  6 القصيم                  31562
+    ##  7 جازان                   29056
+    ##  8 تبوك                    17346
+    ##  9 حائل                    16909
+    ## 10 الجوف                   12910
+    ## 11 الباحة                  12368
+    ## 12 نجران                   10372
+    ## 13 الحدود الشمالية          7529
+
+``` r
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1438") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+```
+
+    ## # A tibble: 13 x 2
+    ##    administrative_regions    sum
+    ##    <chr>                   <dbl>
+    ##  1 الرياض                 127911
+    ##  2 مكة المكرمة            119433
+    ##  3 الشرقية                 69127
+    ##  4 عسير                    47482
+    ##  5 المدينة المنورة         40265
+    ##  6 القصيم                  31352
+    ##  7 جازان                   28776
+    ##  8 حائل                    16934
+    ##  9 تبوك                    16397
+    ## 10 الجوف                   12488
+    ## 11 الباحة                  11668
+    ## 12 نجران                    8845
+    ## 13 الحدود الشمالية          7287
+
+``` r
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1439") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+```
+
+    ## # A tibble: 13 x 2
+    ##    administrative_regions    sum
+    ##    <chr>                   <dbl>
+    ##  1 الرياض                 123998
+    ##  2 مكة المكرمة            116315
+    ##  3 الشرقية                 65941
+    ##  4 عسير                    46860
+    ##  5 المدينة المنورة         39658
+    ##  6 القصيم                  31171
+    ##  7 جازان                   28103
+    ##  8 حائل                    17409
+    ##  9 تبوك                    16289
+    ## 10 الجوف                   12534
+    ## 11 الباحة                  11576
+    ## 12 نجران                    8595
+    ## 13 الحدود الشمالية          7139
+
+``` r
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1440") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+```
+
+    ## # A tibble: 13 x 2
+    ##    administrative_regions    sum
+    ##    <chr>                   <dbl>
+    ##  1 الرياض                 121030
+    ##  2 مكة المكرمة            113688
+    ##  3 الشرقية                 64785
+    ##  4 عسير                    46779
+    ##  5 المدينة المنورة         39099
+    ##  6 القصيم                  30647
+    ##  7 جازان                   27507
+    ##  8 حائل                    17506
+    ##  9 تبوك                    16417
+    ## 10 الجوف                   12755
+    ## 11 الباحة                  11389
+    ## 12 نجران                    9747
+    ## 13 الحدود الشمالية          7377
+
+Comments about your answer: the most region recruited In 1437 is :
+Alriyad the recruited : 130124 the most region recruited In 1438 is :
+Alriyad the recruited : 127911 the most region recruited In 1439 is :
+Alriyad the recruited : 123998 the most region recruited In 1440 is :
+Alriyad the recruited : 121030
 
 3.  Plot the graph of number of teachers recruited vs the number of
     schools in an administrative region? What type or relationship exist

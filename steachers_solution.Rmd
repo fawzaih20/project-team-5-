@@ -199,18 +199,30 @@ The Next Team member should *Pull the changes made previously before proceeding.
 (a) How many teachers are recruited each year, 1437, 1438, 1439, and 1440? 
 
 ```{r teachers_per_year}
-#Add some code
+tdata%>%group_by(the_year)%>%summarise_at(vars(Teachers),list(sum=sum))
 ```
 
 Comments about your answer:
+the total teachers (1437) : 540883
+the total teachers (1438) : 537965
+the total teachers (1439) : 525588
+the total teachers (1440) : 518726
 
 (b) Which region recruited the most teachers in each of the years under review? (4 points)
 
 ```{r teachers_per_region}
-#Add some code
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1437") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1438") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1439") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
+tdata %>% group_by(administrative_regions,Teachers,the_year) %>% filter(the_year=="1440") %>% group_by(administrative_regions) %>% summarise_at(vars(Teachers),list(sum=sum)) %>% arrange(desc(sum))
 ```
 
 Comments about your answer:
+the most region recruited In 1437 is : Alriyad the recruited : 130124
+the most region recruited In 1438 is : Alriyad the recruited : 127911
+the most region recruited In 1439 is : Alriyad the recruited : 123998
+the most region recruited In 1440 is : Alriyad the recruited : 121030
 
 (c) Plot the graph of number of teachers recruited vs the number of schools in an administrative region? What type or relationship exist between the two variables? (4 points)
 
